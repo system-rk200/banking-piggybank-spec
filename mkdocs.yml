@@ -1,0 +1,47 @@
+site_name: Banking PiggyBank Spec
+site_description: Техническое задание и спецификация банковского сервиса автонакоплений
+site_author: Ksenia
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.def_mermaid
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Навигационное меню сайта (ссылается на твои файлы из docs/)
+nav:
+  - Главная: index.md
+  - Бизнес-контекст: 01-business-context.md
+  - Функциональные требования: 02-functional-reqs.md
+  - Модели процессов: 03-process-models.md
+  - Архитектура и API: 04-architecture-api.md
+  - Модель данных: 05-data-model.md
+  - NFR и System Design: 06-non-functional.md
