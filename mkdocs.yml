@@ -7,7 +7,6 @@ site_url: https://system-rk200.github.io/banking-piggybank-spec/
 theme:
   name: material
   language: ru
-  custom_dir: null
   icon:
     logo: material/bank-outline
     repo: fontawesome/brands/github
@@ -27,18 +26,18 @@ theme:
         icon: material/brightness-4
         name: Переключить на светлую тему
   features:
-    - navigation.instant        # Мгновенная загрузка страниц без перезагрузки
-    - navigation.tracking       # Подсветка текущего заголовка в URL
-    - navigation.tabs           # Верхние горизонтальные вкладки
-    - navigation.tabs.sticky    # Закрепление верхнего меню при скролле
-    - navigation.sections       # Разбиение бокового меню на секции
-    - navigation.expand         # Автораскрытие подменю
-    - navigation.top            # Кнопка "Наверх" при прокрутке
-    - search.suggest            # Умный поиск с подсказками
-    - search.highlight          # Подсветка найденного текста
-    - content.code.copy         # Кнопка быстрой копирки кода
-    - content.code.annotate     # Аннотации к коду
-
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    
 # Подключение плагинов и красивых расширений Markdown
 markdown_extensions:
   - admonition                  # Красивые плашки/инфоблоки (!!! note, !!! warning)
