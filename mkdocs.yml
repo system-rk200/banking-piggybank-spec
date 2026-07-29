@@ -1,7 +1,7 @@
 site_name: Banking PiggyBank Spec
 site_description: Спецификация и ТЗ для банковского сервиса автонакоплений "Копилка"
 site_author: Ksenia
-site_url: https://system-rk200.github.io/banking-piggybank-spec/
+site_url: https://ubivator5000.github.io/banking-piggybank-spec/
 
 # Настройка стильного оформления (Material Theme)
 theme:
@@ -37,7 +37,7 @@ theme:
     - search.highlight
     - content.code.copy
     - content.code.annotate
-    
+
 # Подключение плагинов и красивых расширений Markdown
 markdown_extensions:
   - admonition                  # Красивые плашки/инфоблоки (!!! note, !!! warning)
@@ -63,7 +63,6 @@ markdown_extensions:
 
 # Навигационное меню сайта
 nav:
-  - Главная: index.md
   - Бизнес-контекст: 01-business-context.md
   - Функциональные требования: 02-functional-reqs.md
   - Модели процессов: 03-process-models.md
