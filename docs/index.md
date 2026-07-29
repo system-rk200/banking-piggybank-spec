@@ -1,1 +1,1 @@
-<meta http-stream="refresh" content="0; url=01-business-context/">
+<meta http-equiv="refresh" content="0; url=01-business-context/">
