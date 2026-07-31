@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#03" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -422,6 +427,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модели процессов
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -439,6 +464,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bpmn-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Диаграмма процесса
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -542,6 +614,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bpmn-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Диаграмма процесса
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -558,9 +668,56 @@
 
 
 
-  <h1>Модели процессов</h1>
+<h1 id="03">03. Модели процессов</h1>
+<p>В данном разделе представлены модели ключевых бизнес-процессов и сценарии взаимодействия микросервиса «Копилка» со смежными системами Банка.</p>
+<hr />
+<h2 id="1-bpmn-flowchart">1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)</h2>
+<p>Данный процесс описывает пользовательский сценарий создания Копилки в Мобильном приложении, включая бизнес-валидацию на стороне микросервиса и открытие счета в банковском ядре (Core Banking / АБС).</p>
+<h3 id="_1">Диаграмма процесса</h3>
+<p>```mermaid
+graph TB
+    subgraph Client_Lane ["👤 Клиент (Mobile App)"]
+        A([Старт: Нажал 'Включить Копилку'])
+        C1[Выбрать шаг округления]
+        C2{Решение пользователя}
+        E1[Просмотр ошибки: 'Копилка уже существует']
+        E2[Просмотр экрана: 'Копилка успешно создана!']</p>
+<div class="language-text highlight"><pre><span></span><code>    End_Cancel([Конец: Отменено пользователем])
+    End_Error([Конец: Ошибка подключения])
+    End_Success([Конец: Сервис подключен])
+end
 
+subgraph Piggy_Lane [&quot;🐷 Микросервис «Копилка»&quot;]
+    B{Есть активная Копилка?}
+    D1[Запрос в АБС на создание накопительного счета]
+    D3[Сохранение настроек в БД (Status = ACTIVE)]
+    F1[Формирование Push-уведомления]
+end
 
+subgraph ABS_Lane [&quot;🏦 Core Banking (АБС / Bank Core)&quot;]
+    D2[Создание накопительного счета &amp; Выдача Account_ID]
+end
+
+%% Поток управления
+A --&gt; B
+
+%% Альтернативный сценарий: Дубликат
+B -- Да (422 Error) --&gt; E1
+E1 --&gt; End_Error
+
+%% Основной сценарий
+B -- Нет --&gt; C1
+C1 --&gt; C2
+
+C2 -- Нажата &#39;Отмена&#39; --&gt; End_Cancel
+C2 -- Выбран шаг (10/50/100/500 ₽) --&gt; D1
+
+D1 --&gt; D2
+D2 --&gt; D3
+D3 --&gt; F1
+F1 --&gt; E2
+E2 --&gt; End_Success
+</code></pre></div>
 
 
 
