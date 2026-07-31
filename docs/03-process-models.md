@@ -12,7 +12,7 @@
 
 ```mermaid
 graph TB
-    subgraph Client_Lane ["👤 Клиент (Mobile App)"]
+    subgraph Client_Lane ["Клиент (Mobile App)"]
         A([Старт: Нажал 'Включить Копилку'])
         C1[Выбрать шаг округления]
         C2{Решение пользователя}
@@ -24,14 +24,14 @@ graph TB
         End_Success([Конец: Сервис подключен])
     end
 
-    subgraph Piggy_Lane ["🐷 Микросервис «Копилка»"]
+    subgraph Piggy_Lane ["Микросервис «Копилка»"]
         B{Есть активная Копилка?}
         D1[Запрос в АБС на создание накопительного счета]
         D3[Сохранение настроек в БД (Status = ACTIVE)]
         F1[Формирование Push-уведомления]
     end
 
-    subgraph ABS_Lane ["🏦 Core Banking (АБС / Bank Core)"]
+    subgraph ABS_Lane ["Core Banking (АБС / Bank Core)"]
         D2[Создание накопительного счета & Выдача Account_ID]
     end
 
@@ -54,3 +54,4 @@ graph TB
     D3 --> F1
     F1 --> E2
     E2 --> End_Success
+```
