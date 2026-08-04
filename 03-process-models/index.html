@@ -674,39 +674,27 @@
 <h2 id="1-bpmn-flowchart">1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)</h2>
 <p>Данный процесс описывает пользовательский сценарий создания Копилки в Мобильном приложении, включая бизнес-валидацию на стороне микросервиса и открытие счета в банковском ядре (Core Banking / АБС).</p>
 <h3 id="_1">Диаграмма процесса</h3>
-<pre class="mermaid"><code>graph LR
-    subgraph Client ["Клиент (Mobile App)"]
-        A([1. Включить Копилку])
-        C1[3. Выбрать шаг]
-        C2{Решение?}
-        E1[Ошибка: Копилка существует]
-        E2[Экран: Копилка создана]
+<pre class="mermaid"><code>graph TD
+    Start([Запрос на создание копилки]) --&gt; CheckExist[Проверить, есть ли у пользователя копилка]
 
-        End_Cancel([Отменено])
-        End_Error([Ошибка 422])
-        End_Success([Успех])
-    end
+    CheckExist --&gt;|Копилка уже существует| NotifyExist[Уведомление: может быть только одна копилка]
+    CheckExist --&gt;|Копилка отсутствует| RequestStep[Запросить шаг округления]
 
-    subgraph Piggy ["Микросервис Копилка"]
-        B{2. Уже есть?}
-        D1[4. Запрос в АБС]
-        D3[6. Сохранить в БД]
-        F1[7. Push-событие]
-    end
+    RequestStep --&gt; Gateway1{Выбор пользователя}
+    Gateway1 --&gt;|Выбрал шаг округления| GetStep[Получить данные о шаге округления]
+    Gateway1 --&gt;|Нажал отмена| Cancel[Отмена операции]
 
-    subgraph ABS ["Core Banking (АБС)"]
-        D2[5. Создать счет]
-    end
+    GetStep --&gt; RequestCards[Запросить карты для привязки]
+    RequestCards --&gt; Gateway2{Выбор карт}
 
-    %% Логика
-    A --&gt; B
-    B -- Да --&gt; E1 --&gt; End_Error
-    B -- Нет --&gt; C1 --&gt; C2
+    Gateway2 --&gt;|Выбрал дебетовые карты| GetCards[Получить данные карт]
+    Gateway2 --&gt;|Нажал отмена| Cancel
 
-    C2 -- Отмена --&gt; End_Cancel
-    C2 -- Выбран шаг --&gt; D1
+    Cancel --&gt; NotifyFail([Уведомление об отказе])
 
-    D1 --&gt; D2 --&gt; D3 --&gt; F1 --&gt; E2 --&gt; End_Success</code></pre>
+    GetCards --&gt; SendConnect[Отправить запрос на подключение]
+    SendConnect --&gt; Connect[Подключить пользователя]
+    Connect --&gt; NotifySuccess([Уведомление об успешном подключении])</code></pre>
 
 
 
