@@ -10,40 +10,4 @@
 
 ### Диаграмма процесса
 
-```mermaid
-graph TD
-    subgraph Client ["👤 Клиент"]
-        Client_Actor[Клиент]
-    end
-
-    subgraph Core ["🏦 Bank Core"]
-        Start([Запрос на создание копилки]) --> CheckEx[Проверить наличие копилки]
-        CheckEx --> IsEx{Копилка существует?}
-        
-        IsEx -- Да --> End_Exists([Уведомление: Копилка уже существует])
-        IsEx -- Нет --> ReqStep[Запросить шаг округления]
-        
-        ReqStep --> DecStep{Решение по шагу}
-        DecStep -- Отмена --> CancelOp[Отмена операции]
-        DecStep -- Выбран шаг --> GetStep[Получить данные о шаге округления]
-        
-        GetStep --> ReqCards[Запросить дебетовые карты]
-        ReqCards --> DecCards{Решение по картам}
-        DecCards -- Отмена --> CancelOp
-        DecCards -- Выбраны карты --> GetCards[Получить данные карт]
-        
-        GetCards --> SendReq[Отправить запрос на подключение]
-        CancelOp --> End_Cancel([Уведомление об отказе])
-    end
-
-    subgraph Piggy ["🐷 Микросервис «Копилка»"]
-        SendReq --> ConnectUser[Подключить пользователя]
-        ConnectUser --> End_Success([Уведомление об успешном подключении])
-    end
-
-    %% Взаимодействие с клиентом (Message Flows)
-    ReqStep -. Запрос шага .-> Client_Actor
-    Client_Actor -. Выбранный шаг .-> GetStep
-    ReqCards -. Запрос карт .-> Client_Actor
-    Client_Actor -. Выбранные карты .-> GetCards
-```
+![Подключение сервиса «Копилка»](diagrams/piggybank-connection.bpmn)

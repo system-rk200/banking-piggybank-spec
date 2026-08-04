@@ -38,6 +38,10 @@ theme:
     - content.code.copy
     - content.code.annotate
 
+plugins:
+  - search
+  - bpmn-js 
+  
 # Подключение плагинов и красивых расширений Markdown
 markdown_extensions:
   - admonition                  # Красивые плашки/инфоблоки (!!! note, !!! warning)
