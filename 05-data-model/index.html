@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#05" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -478,6 +483,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модель данных
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -495,6 +520,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-er-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ER-диаграмма базы данных
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Описание таблиц и полей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Описание таблиц и полей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-piggy_banks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Таблица piggy_banks (Основные настройки Копилки)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-piggy_bank_cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Таблица piggy_bank_cards (Привязанные дебетовые карты)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-piggy_bank_transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Таблица piggy_bank_transactions (История зачислений и расчетов)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Индексы и ограничения (Constraints)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -544,6 +660,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-er-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ER-диаграмма базы данных
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Описание таблиц и полей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Описание таблиц и полей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-piggy_banks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Таблица piggy_banks (Основные настройки Копилки)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-piggy_bank_cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Таблица piggy_bank_cards (Привязанные дебетовые карты)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-piggy_bank_transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Таблица piggy_bank_transactions (История зачислений и расчетов)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Индексы и ограничения (Constraints)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -560,9 +758,216 @@
 
 
 
-  <h1>Модель данных</h1>
+<h1 id="05">05. Модель данных</h1>
+<p>В данном разделе представлена реляционная модель базы данных микросервиса <strong>PiggyBank Service</strong>. Для хранения данных используется <strong>PostgreSQL</strong>. Модель оптимизирована под высокую скорость чтения настроек, изоляцию данных пользователя и гарантию идемпотентности при обработке финансовых транзакций из Kafka.</p>
+<hr />
+<h2 id="1-er-">1. ER-диаграмма базы данных</h2>
+<pre class="mermaid"><code>erDiagram
+    piggy_banks ||--o{ piggy_bank_cards : "привязаны карты"
+    piggy_banks ||--o{ piggy_bank_transactions : "история операций"
 
+    piggy_banks {
+        uuid id PK "Уникальный идентификатор копилки"
+        uuid user_id "Идентификатор пользователя (из JWT/Gateway)"
+        varchar status "Статус: ACTIVE, PAUSED, CLOSED"
+        integer step_size "Шаг округления (10, 50, 100, 500)"
+        varchar account_number "Номер накопительного счета в АБС"
+        timestamp created_at "Дата и время создания"
+        timestamp updated_at "Дата и время обновления"
+    }
 
+    piggy_bank_cards {
+        uuid id PK "Уникальный идентификатор записи"
+        uuid piggy_bank_id FK "Ссылка на копилку"
+        varchar card_id "Идентификатор дебетовой карты в процессинге"
+        timestamp created_at "Дата привязки карты"
+    }
+
+    piggy_bank_transactions {
+        uuid id PK "Уникальный идентификатор записи истории"
+        uuid piggy_bank_id FK "Ссылка на копилку"
+        varchar transaction_id "ID исходной покупки (для идемпотентности)"
+        numeric original_amount "Сумма исходной покупки"
+        numeric rounded_amount "Округленная сумма"
+        numeric delta "Сумма сдачи (пополнена копилка)"
+        varchar currency "Валюта (RUB)"
+        varchar status "Статус: SUCCESS, SKIPPED_INSUFFICIENT_FUNDS"
+        timestamp created_at "Дата и время обработки транзакции"
+    }</code></pre>
+<hr />
+<h2 id="2">2. Описание таблиц и полей</h2>
+<h3 id="21-piggy_banks">2.1. Таблица <code>piggy_banks</code> (Основные настройки Копилки)</h3>
+<p>Хранит общую информацию о подключенном сервисе для каждого клиента (одна активная копилка на пользователя в рамках FR-ACC-01.4).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Обязательно</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Первичный ключ (PK), сгенерирован на стороне сервиса.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>user_id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Идентификатор клиента. Имеет уникальный индекс (<code>UNIQUE</code>), гарантирующий правило «одна копилка на пользователя».</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>status</code></td>
+<td style="text-align: left;"><code>VARCHAR(20)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Текущий статус сервиса: <code>ACTIVE</code>, <code>PAUSED</code>, <code>CLOSED</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>step_size</code></td>
+<td style="text-align: left;"><code>INTEGER</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Выбранный шаг округления (допустимые значения: <code>10</code>, <code>50</code>, <code>100</code>, <code>500</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>account_number</code></td>
+<td style="text-align: left;"><code>VARCHAR(34)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Номер накопительного счета, открытого в Core Banking / АБС (формат IBAN / расчетный счет).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>created_at</code></td>
+<td style="text-align: left;"><code>TIMESTAMP</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Метка времени создания записи (<code>DEFAULT CURRENT_TIMESTAMP</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>updated_at</code></td>
+<td style="text-align: left;"><code>TIMESTAMP</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Метка времени последнего изменения настроек.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-piggy_bank_cards">2.2. Таблица <code>piggy_bank_cards</code> (Привязанные дебетовые карты)</h3>
+<p>Содержит список дебетовых карт клиента, с транзакций которых разрешено производить расчет сдачи (в соответствии с FR-ACC-01.6).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Обязательно</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Первичный ключ (PK).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>piggy_bank_id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Внешний ключ (FK) на таблицу <code>piggy_banks</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>card_id</code></td>
+<td style="text-align: left;"><code>VARCHAR(64)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Идентификатор карты в процессинговом центре банка.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>created_at</code></td>
+<td style="text-align: left;"><code>TIMESTAMP</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Метка времени привязки карты к копилке.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="23-piggy_bank_transactions">2.3. Таблица <code>piggy_bank_transactions</code> (История зачислений и расчетов)</h3>
+<p>Логирует все входящие транзакции из Kafka-топика, по которым производилась проверка и расчет округления (включая пропущенные из-за нехватки средств).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Тип данных</th>
+<th style="text-align: left;">Обязательно</th>
+<th style="text-align: left;">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Первичный ключ (PK).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>piggy_bank_id</code></td>
+<td style="text-align: left;"><code>UUID</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Внешний ключ (FK) на таблицу <code>piggy_banks</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>transaction_id</code></td>
+<td style="text-align: left;"><code>VARCHAR(64)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Уникальный идентификатор исходной покупки из процессинга. Используется для обеспечения идемпотентности (<code>UNIQUE</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>original_amount</code></td>
+<td style="text-align: left;"><code>NUMERIC(12, 2)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Сумма оригинальной транзакции (покупки).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rounded_amount</code></td>
+<td style="text-align: left;"><code>NUMERIC(12, 2)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Сумма после округления вверх (<code>Math.ceil</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>delta</code></td>
+<td style="text-align: left;"><code>NUMERIC(12, 2)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Рассчитанная сумма сдачи (переведена в копилку или равна 0).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>currency</code></td>
+<td style="text-align: left;"><code>VARCHAR(3)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Код валюты (например, <code>RUB</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>status</code></td>
+<td style="text-align: left;"><code>VARCHAR(30)</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Результат обработки: <code>SUCCESS</code> (успешно переведено) или <code>SKIPPED_INSUFFICIENT_FUNDS</code> (отменено из-за нехватки средств).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>created_at</code></td>
+<td style="text-align: left;"><code>TIMESTAMP</code></td>
+<td style="text-align: left;">Да</td>
+<td style="text-align: left;">Метка времени обработки события.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-constraints">3. Индексы и ограничения (Constraints)</h2>
+<p>Для обеспечения высокой производительности (поддержка высоких нагрузок от Kafka-потока транзакций) и целостности данных создаются следующие индексы:</p>
+<ol>
+<li><strong><code>uk_piggy_banks_user_id</code></strong> (<code>UNIQUE</code> на <code>piggy_banks.user_id</code>) — техническая реализация бизнес-требования об одной копилке на клиента.</li>
+<li><strong><code>uk_piggy_bank_transactions_tx_id</code></strong> (<code>UNIQUE</code> на <code>piggy_bank_transactions.transaction_id</code>) — ключевой элемент защиты от дублирования проводок при повторной доставке сообщений из Kafka (At-Least-Once Delivery).</li>
+<li><strong><code>idx_piggy_bank_tx_date</code></strong> (<code>BTREE</code> на <code>piggy_bank_transactions(piggy_bank_id, created_at)</code>) — составной индекс для быстрой генерации отчетов по истории накоплений за период (день, месяц, год) в соответствии с <code>FR-INFO-01</code>.</li>
+</ol>
 
 
 
