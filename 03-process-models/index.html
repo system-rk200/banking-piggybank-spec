@@ -18,6 +18,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="https://unpkg.com/bpmn-js@18/dist/assets/bpmn-js.css" rel="stylesheet" type="text/css"/></head>
 <body data-md-color-accent="blue" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
@@ -239,20 +240,60 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-bpmn-flowchart">
+<a class="md-nav__link" href="#1-bpmn">
 <span class="md-ellipsis">
       
-        1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)
+        1. Процесс подключения сервиса «Копилка» (BPMN)
       
     </span>
 </a>
-<nav aria-label="1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)" class="md-nav">
+<nav aria-label="1. Процесс подключения сервиса «Копилка» (BPMN)" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#-bpmn">
 <span class="md-ellipsis">
       
-        Диаграмма процесса
+        Диаграмма бизнес-процесса BPMN
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-sequence-diagrams">
+<span class="md-ellipsis">
+      
+        2. Интеграционные сценарии (Sequence Diagrams)
+      
+    </span>
+</a>
+<nav aria-label="2. Интеграционные сценарии (Sequence Diagrams)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-a-event-driven-kafka">
+<span class="md-ellipsis">
+      
+        2.1. Сценарий A: Автопополнение сдачи при покупке (Event-Driven / Kafka)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-b-rest-api">
+<span class="md-ellipsis">
+      
+        2.2. Сценарий B: Подключение сервиса «Копилка» (REST API)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23-c">
+<span class="md-ellipsis">
+      
+        2.3. Сценарий C: Управление настройками и просмотр аналитики
       
     </span>
 </a>
@@ -314,20 +355,60 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-bpmn-flowchart">
+<a class="md-nav__link" href="#1-bpmn">
 <span class="md-ellipsis">
       
-        1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)
+        1. Процесс подключения сервиса «Копилка» (BPMN)
       
     </span>
 </a>
-<nav aria-label="1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)" class="md-nav">
+<nav aria-label="1. Процесс подключения сервиса «Копилка» (BPMN)" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#-bpmn">
 <span class="md-ellipsis">
       
-        Диаграмма процесса
+        Диаграмма бизнес-процесса BPMN
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-sequence-diagrams">
+<span class="md-ellipsis">
+      
+        2. Интеграционные сценарии (Sequence Diagrams)
+      
+    </span>
+</a>
+<nav aria-label="2. Интеграционные сценарии (Sequence Diagrams)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-a-event-driven-kafka">
+<span class="md-ellipsis">
+      
+        2.1. Сценарий A: Автопополнение сдачи при покупке (Event-Driven / Kafka)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-b-rest-api">
+<span class="md-ellipsis">
+      
+        2.2. Сценарий B: Подключение сервиса «Копилка» (REST API)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#23-c">
+<span class="md-ellipsis">
+      
+        2.3. Сценарий C: Управление настройками и просмотр аналитики
       
     </span>
 </a>
@@ -345,10 +426,121 @@
 <h1 id="03">03. Модели процессов</h1>
 <p>В данном разделе представлены модели ключевых бизнес-процессов и сценарии взаимодействия микросервиса «Копилка» со смежными системами Банка.</p>
 <hr/>
-<h2 id="1-bpmn-flowchart">1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)</h2>
-<p>Данный процесс описывает пользовательский сценарий создания Копилки в Мобильном приложении, включая бизнес-валидацию на стороне микросервиса и открытие счета в банковском ядре (Core Banking / АБС).</p>
-<h3 id="_1">Диаграмма процесса</h3>
+<h2 id="1-bpmn">1. Процесс подключения сервиса «Копилка» (BPMN)</h2>
+<p>Данный процесс описывает пользовательский сценарий создания Копилки в Мобильном приложении, включая пошаговую валидацию, выбор параметров и открытие счета в банковском ядре (Core Banking / АБС).</p>
+<h3 id="-bpmn">Диаграмма бизнес-процесса BPMN</h3>
 <p><span class="mk-bpmn-js" data-alt="Подключение сервиса «Копилка»" data-src="../diagrams/connect_piggybank_bpmn.bpmn" id="mk-bpmn-1"><noscript><a download="" href="../diagrams/connect_piggybank_bpmn.bpmn">Подключение сервиса «Копилка»</a></noscript></span></p>
+<hr/>
+<h2 id="2-sequence-diagrams">2. Интеграционные сценарии (Sequence Diagrams)</h2>
+<p>Для удобства проектирования и разработки взаимодействие микросервисов разбито на 3 ключевых изолированных сценария.</p>
+<hr/>
+<h3 id="21-a-event-driven-kafka">2.1. Сценарий A: Автопополнение сдачи при покупке (Event-Driven / Kafka)</h3>
+<p><strong>Описание:</strong><br/>
+Асинхронный процесс обработки транзакций. Микросервис вычитывает события транзакций из Kafka, рассчитывает сумму округления (Delta), проверяет остаток на карте клиента в АБС и выполняет автоматический перевод средств в Копилку.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant Kafka as Kafka (payment-events)
+    participant PB as PiggyBank Service
+    participant ABS as Core Banking / ABS
+    participant Notif as Notification Service
+
+    activate Kafka
+    Kafka-&gt;&gt;PB: Потребление события (POS_PAYMENT / ECOM_PAYMENT)
+    activate PB
+
+    PB-&gt;&gt;PB: 1. Валидация типа и расчет Delta (FR-CALC-01, FR-CALC-02)
+
+    alt Баланс карты &gt;= Delta (Средств достаточно)
+        PB-&gt;&gt;ABS: 2. Перевод Delta [idempotency_key] (FR-EXEC-01)
+        activate ABS
+        ABS--&gt;&gt;PB: 200 OK (Проводка выполнена)
+        deactivate ABS
+
+        PB-&gt;&gt;Notif: 3. Отправка события для Push (FR-INFO-02.1)
+        activate Notif
+        Notif--&gt;&gt;PB: Push отправлен
+        deactivate Notif
+    else Баланс карты &lt; Delta (Недостаточно средств)
+        PB-&gt;&gt;PB: Отмена списания: SKIPPED_INSUFFICIENT_FUNDS (FR-EXEC-02.3)
+    end
+
+    deactivate PB
+    deactivate Kafka</code></pre>
+<hr/>
+<h3 id="22-b-rest-api">2.2. Сценарий B: Подключение сервиса «Копилка» (REST API)</h3>
+<p><strong>Описание:</strong><br/>
+Синхронный REST-запрос от Мобильного приложения при завершении мастера подключения. Сервис проверяет бизнес-правило (одна Копилка на клиента) и инициирует открытие накопительного счета в банковском ядре (АБС).</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor App as Мобильное Приложение
+    participant Gateway as API Gateway
+    participant PB as PiggyBank Service
+    participant ABS as Core Banking / ABS
+
+    App-&gt;&gt;Gateway: POST /v1/piggy-bank {step_size, card_ids} (FR-ACC-01.1)
+    activate App
+    activate Gateway
+    Gateway-&gt;&gt;PB: POST /api/v1/piggy-bank (FR-ACC-01.2)
+    activate PB
+
+    PB-&gt;&gt;PB: Проверка: нет ли уже активной Копилки (FR-ACC-01.4)
+
+    alt Активная Копилка уже существует
+        PB--&gt;&gt;Gateway: 409 Conflict (PIGGY_BANK_ALREADY_EXISTS)
+        Gateway--&gt;&gt;App: 409 Conflict ("Копилка уже подключена")
+    else Копилки нет
+        PB-&gt;&gt;ABS: Запрос на открытие накопительного счета (FR-ACC-01.3)
+        activate ABS
+        ABS--&gt;&gt;PB: 201 Created {account_number: "40817..."}
+        deactivate ABS
+
+        PB-&gt;&gt;PB: Сохранение настроек и привязка карт (FR-ACC-01.6)
+        PB--&gt;&gt;Gateway: 201 Created {piggy_bank_id, status: "ACTIVE"}
+        Gateway--&gt;&gt;App: 201 Created (Экран успешного подключения)
+    end
+
+    deactivate PB
+    deactivate Gateway
+    deactivate App</code></pre>
+<hr/>
+<h3 id="23-c">2.3. Сценарий C: Управление настройками и просмотр аналитики</h3>
+<p><strong>Описание:</strong><br/>
+Пользовательские сценарии управления уже созданной Копилкой: изменение шага округления (настройки вступают в силу для новых покупок) и получение истории накоплений с аналитикой за период.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor App as Мобильное Приложение
+    participant Gateway as API Gateway
+    participant PB as PiggyBank Service
+
+    %% Часть 1: Изменение шага
+    rect rgb(245, 245, 255)
+    note right of App: Изменение шага округления
+    App-&gt;&gt;Gateway: PATCH /v1/piggy-bank/settings {step_size: 500} (FR-ACC-02.1)
+    activate App
+    activate Gateway
+    Gateway-&gt;&gt;PB: Update Step Size
+    activate PB
+    PB--&gt;&gt;Gateway: 200 OK (Настройки обновлены)
+    deactivate PB
+    Gateway--&gt;&gt;App: 200 OK (Шаг изменен)
+    deactivate Gateway
+    deactivate App
+    end
+
+    %% Часть 2: Просмотр аналитики
+    rect rgb(245, 255, 245)
+    note right of App: Просмотр истории и аналитики
+    App-&gt;&gt;Gateway: GET /v1/piggy-bank/history?period=month (FR-INFO-01.1)
+    activate App
+    activate Gateway
+    Gateway-&gt;&gt;PB: Get History &amp; Analytics (FR-INFO-01.2)
+    activate PB
+    PB--&gt;&gt;Gateway: 200 OK {total_accumulated, transactions}
+    deactivate PB
+    Gateway--&gt;&gt;App: 200 OK (Отображение виджета аналитики)
+    deactivate Gateway
+    deactivate App
+    end</code></pre>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
