@@ -1,0 +1,12 @@
+/* Растягиваем внутренний контейнер BPMN */
+.bpmn-container,
+.bjs-container {
+    height: 50vh !important;
+    width: 100% !important;
+}
+
+/* Растягиваем сам векторный холст (SVG) внутри окна */
+.bjs-container svg {
+    width: 100% !important;
+    height: 100% !important;
+}

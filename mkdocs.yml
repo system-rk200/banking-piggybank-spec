@@ -41,7 +41,7 @@ theme:
 plugins:
   - search
   - bpmn-js
-  
+
 # Подключение плагинов и красивых расширений Markdown
 markdown_extensions:
   - admonition                  # Красивые плашки/инфоблоки (!!! note, !!! warning)
@@ -73,3 +73,6 @@ nav:
   - Архитектура и API: 04-architecture-api.md
   - Модель данных: 05-data-model.md
   - NFR и System Design: 06-non-functional.md
+
+extra_css:
+  - stylesheets/extra.css
