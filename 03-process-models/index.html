@@ -674,7 +674,41 @@
 <h2 id="1-bpmn-flowchart">1. Процесс подключения сервиса «Копилка» (BPMN / Flowchart)</h2>
 <p>Данный процесс описывает пользовательский сценарий создания Копилки в Мобильном приложении, включая бизнес-валидацию на стороне микросервиса и открытие счета в банковском ядре (Core Banking / АБС).</p>
 <h3 id="_1">Диаграмма процесса</h3>
-<p><img alt="Схема подключения сервиса «Копилка»" src="../diagrams/connect_piggybank_bpmn.svg" /></p>
+<pre class="mermaid"><code>graph TD
+    subgraph Client ["👤 Клиент"]
+        Client_Actor[Клиент]
+    end
+
+    subgraph Core ["🏦 Bank Core"]
+        Start([Запрос на создание копилки]) --&gt; CheckEx[Проверить наличие копилки]
+        CheckEx --&gt; IsEx{Копилка существует?}
+
+        IsEx -- Да --&gt; End_Exists([Уведомление: Копилка уже существует])
+        IsEx -- Нет --&gt; ReqStep[Запросить шаг округления]
+
+        ReqStep --&gt; DecStep{Решение по шагу}
+        DecStep -- Отмена --&gt; CancelOp[Отмена операции]
+        DecStep -- Выбран шаг --&gt; GetStep[Получить данные о шаге округления]
+
+        GetStep --&gt; ReqCards[Запросить дебетовые карты]
+        ReqCards --&gt; DecCards{Решение по картам}
+        DecCards -- Отмена --&gt; CancelOp
+        DecCards -- Выбраны карты --&gt; GetCards[Получить данные карт]
+
+        GetCards --&gt; SendReq[Отправить запрос на подключение]
+        CancelOp --&gt; End_Cancel([Уведомление об отказе])
+    end
+
+    subgraph Piggy ["🐷 Микросервис «Копилка»"]
+        SendReq --&gt; ConnectUser[Подключить пользователя]
+        ConnectUser --&gt; End_Success([Уведомление об успешном подключении])
+    end
+
+    %% Взаимодействие с клиентом (Message Flows)
+    ReqStep -. Запрос шага .-&gt; Client_Actor
+    Client_Actor -. Выбранный шаг .-&gt; GetStep
+    ReqCards -. Запрос карт .-&gt; Client_Actor
+    Client_Actor -. Выбранные карты .-&gt; GetCards</code></pre>
 
 
 
