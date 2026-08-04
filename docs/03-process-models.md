@@ -10,4 +10,4 @@
 
 ### Диаграмма процесса
 
-![Схема подключения сервиса «Копилка»](../diagrams/connect_piggybank_bpmn.svg)
+![Схема подключения сервиса «Копилка»](diagrams/connect_piggybank_bpmn.svg)
