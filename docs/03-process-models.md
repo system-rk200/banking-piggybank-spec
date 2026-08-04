@@ -11,37 +11,25 @@
 ### Диаграмма процесса
 
 ```mermaid
-graph LR
-    subgraph Client ["Клиент (Mobile App)"]
-        A([1. Включить Копилку])
-        C1[3. Выбрать шаг]
-        C2{Решение?}
-        E1[Ошибка: Копилка существует]
-        E2[Экран: Копилка создана]
-        
-        End_Cancel([Отменено])
-        End_Error([Ошибка 422])
-        End_Success([Успех])
-    end
-
-    subgraph Piggy ["Микросервис Копилка"]
-        B{2. Уже есть?}
-        D1[4. Запрос в АБС]
-        D3[6. Сохранить в БД]
-        F1[7. Push-событие]
-    end
-
-    subgraph ABS ["Core Banking (АБС)"]
-        D2[5. Создать счет]
-    end
-
-    %% Логика
-    A --> B
-    B -- Да --> E1 --> End_Error
-    B -- Нет --> C1 --> C2
+graph TD
+    Start([Запрос на создание копилки]) --> CheckExist[Проверить, есть ли у пользователя копилка]
     
-    C2 -- Отмена --> End_Cancel
-    C2 -- Выбран шаг --> D1
+    CheckExist -->|Копилка уже существует| NotifyExist[Уведомление: может быть только одна копилка]
+    CheckExist -->|Копилка отсутствует| RequestStep[Запросить шаг округления]
     
-    D1 --> D2 --> D3 --> F1 --> E2 --> End_Success
+    RequestStep --> Gateway1{Выбор пользователя}
+    Gateway1 -->|Выбрал шаг округления| GetStep[Получить данные о шаге округления]
+    Gateway1 -->|Нажал отмена| Cancel[Отмена операции]
+    
+    GetStep --> RequestCards[Запросить карты для привязки]
+    RequestCards --> Gateway2{Выбор карт}
+    
+    Gateway2 -->|Выбрал дебетовые карты| GetCards[Получить данные карт]
+    Gateway2 -->|Нажал отмена| Cancel
+    
+    Cancel --> NotifyFail([Уведомление об отказе])
+    
+    GetCards --> SendConnect[Отправить запрос на подключение]
+    SendConnect --> Connect[Подключить пользователя]
+    Connect --> NotifySuccess([Уведомление об успешном подключении])
 ```
