@@ -40,7 +40,7 @@ theme:
 
 plugins:
   - search
-  - bpmn-js 
+  - bpmn-js
   
 # Подключение плагинов и красивых расширений Markdown
 markdown_extensions:

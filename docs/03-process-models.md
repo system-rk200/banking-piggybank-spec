@@ -10,6 +10,4 @@
 
 ### Диаграмма процесса
 
-```bpmn
-diagrams/piggybank-connection.bpmn
-```
+![Подключение сервиса «Копилка»](diagrams/connect_piggybank_bpmn.bpmn)
